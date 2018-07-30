@@ -1,17 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>InDarts - Madrid</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <pre>{{listTorneos | json}}</pre>
+  <div *ngFor="let item of mockData; let i = index">
+    <ion-card>
+      <ion-card-header>
+          {{item.name}}
+      </ion-card-header>
+
+      <ion-card-content>
+        <label>Jugador 1: </label> {{item.member1}} <br>
+        <label>Jugador 2: </label> {{item.member2}}
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
