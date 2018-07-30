@@ -1,0 +1,7 @@
+{
+  "name": "InDarts",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
