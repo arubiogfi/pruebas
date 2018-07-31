@@ -31,14 +31,8 @@ export class HomePage {
   _init() {
     this.homeSrv.getTorneos().subscribe(
       (res) => {
-        this.listTorneos = JSON.parse(res._body);
+        this.listTorneos = res;
         console.log(this.listTorneos);
-      },
-      (err: any) => {
-
-      },
-      () => {
-
       })
   }
 

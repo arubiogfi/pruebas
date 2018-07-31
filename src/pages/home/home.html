@@ -5,17 +5,39 @@
 </ion-header>
 
 <ion-content padding>
-  <pre>{{listTorneos | json}}</pre>
-  <div *ngFor="let item of mockData; let i = index">
-    <ion-card>
-      <ion-card-header>
-          {{item.name}}
-      </ion-card-header>
+  <div *ngFor="let item of listTorneos; let i = index">
+    <h1>{{item.name}}</h1>
+      <h2>Parejas</h2>
+      <div *ngFor="let card of item.types.Parejas; let i = index">
+        <ion-card>
+          <ion-card-header>
+            <label> {{i+1}} - {{card.name}} </label>
+          </ion-card-header>
 
-      <ion-card-content>
-        <label>Jugador 1: </label> {{item.member1}} <br>
-        <label>Jugador 2: </label> {{item.member2}}
-      </ion-card-content>
-    </ion-card>
+          <ion-card-content>
+            <label>Jugador 1: </label> {{card.member1}}
+            <br>
+            <label>Jugador 2: </label> {{card.member2}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <h2>Equipos</h2>
+      <div *ngFor="let card of item.types.Equipos; let i = index">
+          <ion-card>
+            <ion-card-header>
+              <label> {{i+1}} - {{card.name}} </label>
+            </ion-card-header>
+
+            <ion-card-content>
+              <label>Jugador 1: </label> {{card.member1}}
+              <br>
+              <label>Jugador 2: </label> {{card.member2}}
+              <br>
+              <label>Jugador 3: </label> {{card.member3}}
+              <br>
+              <label>Jugador 4: </label> {{card.member4}}
+            </ion-card-content>
+          </ion-card>
+        </div>
   </div>
 </ion-content>
