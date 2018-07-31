@@ -3,41 +3,12 @@
     <ion-title>InDarts - Madrid</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  <div *ngFor="let item of listTorneos; let i = index">
-    <h1>{{item.name}}</h1>
-      <h2>Parejas</h2>
-      <div *ngFor="let card of item.types.Parejas; let i = index">
-        <ion-card>
-          <ion-card-header>
-            <label> {{i+1}} - {{card.name}} </label>
-          </ion-card-header>
-
-          <ion-card-content>
-            <label>Jugador 1: </label> {{card.member1}}
-            <br>
-            <label>Jugador 2: </label> {{card.member2}}
-          </ion-card-content>
-        </ion-card>
-      </div>
-      <h2>Equipos</h2>
-      <div *ngFor="let card of item.types.Equipos; let i = index">
-          <ion-card>
-            <ion-card-header>
-              <label> {{i+1}} - {{card.name}} </label>
-            </ion-card-header>
-
-            <ion-card-content>
-              <label>Jugador 1: </label> {{card.member1}}
-              <br>
-              <label>Jugador 2: </label> {{card.member2}}
-              <br>
-              <label>Jugador 3: </label> {{card.member3}}
-              <br>
-              <label>Jugador 4: </label> {{card.member4}}
-            </ion-card-content>
-          </ion-card>
-        </div>
-  </div>
+  <ion-item>
+    <ion-label>País: </ion-label>
+    <ion-select [(ngModel)]="country">
+      <ion-option value="f">Female</ion-option>
+      <ion-option value="m">Male</ion-option>
+    </ion-select>
+  </ion-item>
 </ion-content>

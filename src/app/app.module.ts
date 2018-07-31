@@ -11,8 +11,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomeService } from '../pages/home/homeService';
 import { HttpModule, Http } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
+import { TournamentDetailProvider } from '../providers/tournament-detail/tournament-detail';
+import { HomeProvider } from '../providers/home/home';
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +27,8 @@ import { HttpModule, Http } from '@angular/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,7 +42,8 @@ import { HttpModule, Http } from '@angular/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HomeService
+    TournamentDetailProvider,
+    HomeProvider
   ]
 })
 export class AppModule {}

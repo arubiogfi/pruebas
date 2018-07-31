@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 // Services
-import { HomeService } from './homeService';
+import { HomeProvider } from '../../providers/home/home';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -23,17 +23,17 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    public homeSrv: HomeService
+    public homeProvider: HomeProvider
   ) {
     this._init();
   }
 
   _init() {
-    this.homeSrv.getTorneos().subscribe(
+    this.homeProvider.getAllCountries()/* .subscribe(
       (res) => {
         this.listTorneos = res;
         console.log(this.listTorneos);
-      })
+      }) */
   }
 
 }
