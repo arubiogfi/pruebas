@@ -1,14 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>InDarts - Madrid</ion-title>
+    <ion-title>InDarts</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <ion-item>
     <ion-label>País: </ion-label>
-    <ion-select [(ngModel)]="country">
-      <ion-option value="f">Female</ion-option>
-      <ion-option value="m">Male</ion-option>
+    <ion-select [(ngModel)]="formModel.country" (ngModelChange)="_getProvinces($event)">
+      <ion-option *ngFor="let item of listCountries" value="{{item}}">{{item}}</ion-option>
     </ion-select>
   </ion-item>
+  <ion-item>
+    <ion-label>Provincia: </ion-label>
+    <ion-select [(ngModel)]="formModel.province" (ngModelChange)="_getCities($event)">
+      <ion-option *ngFor="let item of listProvincias" value="{{item}}">{{item}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Localidad: </ion-label>
+    <ion-select [(ngModel)]="formModel.city">
+      <ion-option *ngFor="let item of listCities" value="{{item}}">{{item}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <pre>{{formModel | json}}</pre>
+  <button ion-button block (click)="goCOntact()">Block Button</button>
 </ion-content>

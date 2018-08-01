@@ -16,14 +16,17 @@ export class HomeProvider {
   constructor(
     public http: HttpClient
   ) {
-    console.log('Hello HomeProvider Provider');
   }
 
   getAllCountries() {
-    return console.log(CONFIG.API);
+    return this.http.get(CONFIG.API.PATH + '.json');
   }
 
   getAllProvinces(country: String) {
-    
+    return this.http.get(CONFIG.API.PATH + country + '.json');
+  }
+
+  getAllCities(country: String, province: String) {
+    return this.http.get(CONFIG.API.PATH + country + '/' + province + '.json');
   }
 }
